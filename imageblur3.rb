@@ -12,6 +12,8 @@ class Image
     end
   end
 
+  
+
   def find_1!
     ones = []
     @image.each_with_index do |arr, row_index|
@@ -36,17 +38,26 @@ class Image
 
   end
 
+  def blur3!(distance=2)
+    distance.times do
+      find_1!
+    end
+  end
 
+  
 end
 
 image = Image.new([
-  [0, 0, 0, 0], 
-  [0, 1, 0, 0], 
-  [0, 0, 0, 1],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+  [0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0], 
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
 ])
 
 
-image.find_1!
+#image.find_1!
+image.blur3!
 image.output_image
 
